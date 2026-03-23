@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prioteam.AI - Shir Turkenitz</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --ink: #1A1916;
+    --ink-muted: #4A4845;
+    --label: #7A7670;
+    --accent: #8B7355;
+    --accent-light: #EFECE5;
+    --rule: #E0DCD5;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  .page-wrap { max-width: 1200px; margin: 0 auto; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.06);
+  }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px clamp(24px, 5vw, 80px);
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  nav.scrolled { border-bottom-color: var(--rule); }
+  .nav-logo { font-family: var(--serif); font-size: 17px; letter-spacing: -0.3px; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: clamp(20px, 3vw, 36px); list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--ink-muted); letter-spacing: 0.4px; text-transform: uppercase; text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: calc(100vh - 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 56px 80px 48px;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(44px, 5.5vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+  }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-subtitle {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    max-width: 440px;
+    margin-bottom: 28px;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all .2s;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: #333; transform: translateY(-1px); }
+  .btn-secondary {
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .btn svg { width: 14px; height: 14px; }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 48px 80px 56px;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+  }
+  .meta-item {
+    padding: 0 16px;
+    min-width: 0;
+  }
+  .meta-item:first-child { padding-left: 0; }
+  .meta-divider {
+    display: block;
+    width: 1px;
+    height: 28px;
+    background: var(--rule);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+  .meta-value {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .hero-image-placeholder {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-muted);
+    font-size: 13px;
+    letter-spacing: .05em;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 48px;
+    margin: 0;
+  }
+  .section-divider .tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .section-divider .line { flex: 1; height: 1px; background: var(--rule); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 48px; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding-top: 8px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -.02em;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .section-body {
+    padding-left: 264px;
+  }
+
+  /* ── PROBLEM ── */
+  .problem-statement {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 38px);
+    line-height: 1.25;
+    letter-spacing: -.015em;
+    max-width: 720px;
+  }
+  .problem-statement strong { color: var(--accent); font-style: italic; font-weight: 400; }
+
+  /* ── RESEARCH STATS ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .stat-card {
+    padding: 36px 28px;
+    border-right: 1px solid var(--rule);
+    transition: background 0.4s;
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-card:hover { background: rgba(239,236,229,0.4); }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 52px;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .stat-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+
+  /* ── FINDINGS ── */
+  .findings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .finding-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.4s;
+  }
+  .finding-item:last-child { border-bottom: none; }
+  .finding-item:hover { background: rgba(239,236,229,0.4); }
+  .finding-num {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 24px;
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--accent);
+    border-right: 1px solid var(--rule);
+  }
+  .finding-content { padding: 22px 28px; }
+  .finding-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .finding-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.55; }
+
+  /* ── PRINCIPLES ── */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .principle-card {
+    background: var(--bg);
+    padding: 36px 32px;
+    transition: background 0.4s;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .principle-card:nth-child(2n) { border-right: none; }
+  .principle-card:nth-last-child(-n+2) { border-bottom: none; }
+  .principle-card:hover { background: rgba(239,236,229,0.4); }
+  .principle-index {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .principle-name {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .principle-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.55; }
+
+  /* ── IDEATION ── */
+  .ideation-body { max-width: 680px; }
+  .ideation-body p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    margin-bottom: 20px;
+  }
+  .ideation-body p strong { color: var(--ink); font-weight: 500; }
+  .image-placeholder {
+    width: 100%;
+    aspect-ratio: 21/9;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-muted);
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin: 32px 0;
+  }
+  .image-placeholder-caption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: -24px;
+    margin-bottom: 32px;
+    letter-spacing: .04em;
+  }
+
+  /* ── SOLUTION INTRO ── */
+  .solution-intro {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.5vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -.015em;
+    max-width: 680px;
+    margin-bottom: 24px;
+  }
+  .solution-note {
+    font-size: 16px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    max-width: 620px;
+  }
+  .solution-note strong { color: var(--ink); font-weight: 500; }
+
+  /* ── DESIGN SOLUTIONS ── */
+  .design-solutions { display: flex; flex-direction: column; gap: 80px; }
+  .design-solution {}
+  .ds-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 20px; }
+  .ds-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-top: 5px;
+    white-space: nowrap;
+  }
+  .ds-title {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 30px);
+    line-height: 1.2;
+    letter-spacing: -.01em;
+  }
+  .ds-desc {
+    font-size: 15px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    max-width: 660px;
+    margin-bottom: 32px;
+  }
+  .ds-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .ds-images.single { grid-template-columns: 1fr; }
+  .ds-image-block {}
+  .ds-image-block .image-placeholder { margin: 0; aspect-ratio: 4/3; }
+  .ds-image-caption {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: .04em;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* ── LEARNINGS ── */
+  .learnings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .learning-card {
+    background: var(--bg);
+    padding: 36px 28px;
+    border-right: 1px solid var(--rule);
+  }
+  .learning-card:last-child { border-right: none; }
+  .learning-icon {
+    width: 32px; height: 32px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+  .learning-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .closing-note {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .thanks-block {
+    padding: 28px 32px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    max-width: 640px;
+  }
+  .thanks-block strong { color: var(--ink); }
+
+  /* ── SIZZLE ── */
+  .sizzle-block {
+    padding: 64px 48px;
+    background: var(--ink);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--bg);
+    margin: 0 48px 100px;
+  }
+  .sizzle-block .label {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(245,243,238,.5);
+    margin-bottom: 16px;
+  }
+  .sizzle-block h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .sizzle-block p { color: rgba(245,243,238,.6); font-size: 14px; margin-bottom: 28px; }
+  .sizzle-block .btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform .2s, opacity .2s;
+  }
+  .sizzle-block .btn-light:hover { transform: translateY(-2px); opacity: .9; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px clamp(24px, 5vw, 80px);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: var(--ink-muted);
+  }
+  .footer-logo { font-family: var(--serif); font-size: 15px; color: var(--ink); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--ink-muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--ink); }
+  .footer-copy { font-size: 12px; color: var(--label); }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ── TABLET (iPad) ── */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 56px 40px 40px; border-right: none; border-bottom: 1px solid var(--rule); }
+    .hero-right { padding: 40px 40px 56px; }
+    .hero-meta { gap: 0; }
+    section { padding: 72px 40px; }
+    .section-header, .section-body { grid-template-columns: 1fr; gap: 20px; padding-left: 0; }
+    .section-label { padding-top: 0; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-card:nth-child(2n) { border-right: none; }
+    .stat-card:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .principles-grid { grid-template-columns: 1fr 1fr; }
+    .learnings-grid { grid-template-columns: 1fr 1fr; }
+    .ds-images { grid-template-columns: 1fr; }
+    .sizzle-block { margin: 0 40px 72px; padding: 56px 40px; }
+    .section-divider { padding: 0 40px; }
+  }
+
+  /* ── MOBILE (iPhone) ── */
+  @media (max-width: 640px) {
+    nav { padding: 18px 20px; }
+    .nav-links { gap: 18px; }
+    .hero-left { padding: 40px 20px 32px; }
+    .hero-right { padding: 32px 20px 48px; }
+    .hero-meta { gap: 0; }
+    .hero-ctas { flex-direction: column; }
+    .btn { justify-content: center; }
+    section { padding: 56px 20px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-card { padding: 24px 16px; }
+    .stat-number { font-size: 38px; }
+    .finding-item { grid-template-columns: 36px 1fr; }
+    .finding-content { padding: 18px 16px; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .principle-card { padding: 24px 20px; }
+    .learnings-grid { grid-template-columns: 1fr; }
+    .ds-images { grid-template-columns: 1fr; }
+    .ds-header { flex-direction: column; gap: 10px; }
+    .problem-statement { font-size: clamp(20px, 5vw, 28px); }
+    .solution-intro { font-size: clamp(18px, 5vw, 26px); }
+    .sizzle-block { margin: 0 20px 56px; padding: 40px 20px; border-radius: 8px; }
+    .sizzle-block h2 { font-size: 26px; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+    .footer-links { justify-content: center; }
+    html, body { overflow-x: hidden; width: 100%; }
+  }
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(26,25,22,0.7);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 75%;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    cursor: default;
+    animation: lightbox-in .2s ease;
+  }
+  @keyframes lightbox-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    width: 36px; height: 36px;
+    background: rgba(245,243,238,0.15);
+    border: 1px solid rgba(245,243,238,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: #F7F5F0;
+    font-size: 18px;
+    transition: background 0.4s;
+  }
+  .lightbox-close:hover { background: rgba(245,243,238,0.25); }
+  .zoomable { cursor: zoom-in; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="https://www.turkenitz.com/" class="nav-logo">Shir Turkenitz</a>
+  <div class="nav-links">
+    <a href="https://www.turkenitz.com/#work">Work</a>
+    <a href="https://www.turkenitz.com/#about">About</a>
+    <a href="https://drive.google.com/file/d/1-bZzj5KcVY_PsbtgJcaNekl5gZ6iMJnR/view?usp=sharing" target="_blank">Resume</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-wrap">
+<div class="hero" id="top">
+  <div class="hero-left reveal">
+    <div class="hero-eyebrow">Oracle × Capstone Project</div>
+    <h1 class="hero-title">Prioteam<em>.</em>AI</h1>
+    <p class="hero-subtitle">AI-assisted project management tool designed to help managers prioritize work, allocate resources, and identify risks before they escalate.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-value">UX Designer</div>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <div class="meta-label">Duration</div>
+        <div class="meta-value">Mar - Dec 2025</div>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <div class="meta-label">Team</div>
+        <div class="meta-value">Tristyn Lei · Rebecca Wong · David Zhang</div>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <div class="meta-label">Partner</div>
+        <div class="meta-value">Oracle Design Team</div>
+      </div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#design" class="btn btn-primary">
+        Explore final design
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#sizzle" class="btn btn-secondary">Watch sizzle reel</a>
+    </div>
+  </div>
+
+  <div class="hero-right reveal" style="transition-delay:.15s">
+    <img src="hero-main.png" alt="Prioteam.AI - final design overview" style="width:100%;border-radius:8px;display:block;"/>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-header reveal">
+    <span class="section-label">The Problem</span>
+    <h2 class="section-title">What's broken for managers?</h2>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <p class="problem-statement">
+      Managers are <strong>overwhelmed by information</strong> spread across multiple tools, making it hard to prioritize work, assign teams and tasks, and spot risks early.
+    </p>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header reveal">
+    <span class="section-label">Research</span>
+    <h2 class="section-title">How we got started</h2>
+  </div>
+
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">13</div>
+      <div class="stat-desc">Preliminary interviews with experienced managers (2+ years)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">29</div>
+      <div class="stat-desc">Competitive analyses of project and task management tools</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">8</div>
+      <div class="stat-desc">Reviews of academic and industry research papers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1</div>
+      <div class="stat-desc">Heuristic evaluation &amp; UX best practices review</div>
+    </div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 48px;">
+    <p class="section-label" style="margin-bottom: 16px;">What we learned</p>
+    <div class="findings-list">
+      <div class="finding-item">
+        <div class="finding-num">1</div>
+        <div class="finding-content">
+          <div class="finding-title">Tool overload hurts productivity</div>
+          <div class="finding-desc">Managers struggle when they must switch between multiple systems to get a clear picture of their projects.</div>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">2</div>
+        <div class="finding-content">
+          <div class="finding-title">Trust requires transparency</div>
+          <div class="finding-desc">AI recommendations must clearly explain why a suggestion was made - black-box outputs are rejected.</div>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">3</div>
+        <div class="finding-content">
+          <div class="finding-title">Managers want collaboration, not automation</div>
+          <div class="finding-desc">AI should assist and support decision-making, not replace the manager's judgment entirely.</div>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">4</div>
+        <div class="finding-content">
+          <div class="finding-title">One clear signal beats many notifications</div>
+          <div class="finding-desc">Highlighting the most urgent issue is far more effective than constant low-priority alerts.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section id="principles">
+  <div class="section-header reveal">
+    <span class="section-label">Define the Way</span>
+    <h2 class="section-title">Our design principles</h2>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="principle-index">01</div>
+        <div class="principle-name">Transparency of Reasoning</div>
+        <div class="principle-desc">Always show how AI reaches its conclusions - no black boxes.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-index">02</div>
+        <div class="principle-name">Utility of Action</div>
+        <div class="principle-desc">Recommendations must be immediately actionable, not just informational.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-index">03</div>
+        <div class="principle-name">Manager Control</div>
+        <div class="principle-desc">Every AI output must be editable. The manager is always in charge.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-index">04</div>
+        <div class="principle-name">Clarity Over Complexity</div>
+        <div class="principle-desc">Prioritize the signals that matter. Ruthlessly reduce noise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEATION -->
+<section id="ideation">
+  <div class="section-header reveal">
+    <span class="section-label">Ideation</span>
+    <h2 class="section-title">How the concept evolved</h2>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <div class="ideation-body">
+      <p>Initially, after user research, we designed a <strong>scenario predictor for tasks</strong> - but shifted to an <strong>AI agent</strong> that managers can ask questions whenever they're unsure about a project.</p>
+      <p>Our research showed that conversational AI is familiar in the workplace, so this approach <strong>matches managers' mental models</strong>, reduces the learning curve, and makes the experience feel less overwhelming.</p>
+    </div>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.2s; margin-top: 32px;">
+    <div>
+      <div class="ds-images" style="margin-bottom: 10px;">
+        <div class="ds-image-block">
+          <img src="ideation-before-agent.png" alt="Before: scenario predictor" style="width:100%;border-radius:8px;display:block;box-shadow:none;"/>
+          <div class="ds-image-caption">Before: scenario predictor</div>
+        </div>
+        <div class="ds-image-block">
+          <img src="ideation-after-agent.png" alt="After: conversational agent" style="width:100%;border-radius:8px;display:block;box-shadow:none;"/>
+          <div class="ds-image-caption">After: conversational agent</div>
+        </div>
+      </div>
+
+      <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);margin: 40px 0 20px;">Another key idea was the <strong style="color:var(--ink)">team builder</strong>. We originally designed it as an AI-only experience, but insights from usability testing showed that users wanted the ability to customize and refine the team to better match their needs.</p>
+
+      <div class="ds-images" style="margin-bottom: 10px;">
+        <div class="ds-image-block">
+          <img src="ideation-before-team.png" alt="Before: AI-only experience" style="width:100%;border-radius:8px;display:block;"/>
+          <div class="ds-image-caption">Before: AI-only experience</div>
+        </div>
+        <div class="ds-image-block">
+          <img src="ideation-after-team.png" alt="After: customizable team builder" style="width:100%;border-radius:8px;display:block;"/>
+          <div class="ds-image-caption">After: customizable team builder</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION STATEMENT -->
+<section id="solution" style="background: rgba(239,236,229,0.4); border-top: none;">
+  <div class="section-body reveal" style="display:grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; padding-left: 0;">
+    <span class="section-label" style="padding-top: 8px;">The Solution</span>
+    <p class="solution-intro">A tool designed to help managers quickly prioritize tasks, build a reliable team, and catch potential hazards <em>before they explode.</em></p>
+  </div>
+</section>
+
+<!-- DESIGN SOLUTIONS -->
+<section id="design">
+  <div class="section-header reveal">
+    <span class="section-label">Final Design</span>
+    <h2 class="section-title">Three solutions, one system</h2>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <p class="solution-note">Our design solutions <strong>leveraged AI</strong> - the right tool here because managers weren't lacking data, they were overloaded by it. AI helped pull everything together and <strong>highlight what mattered most</strong>, while keeping suggestions transparent and editable so managers stayed in control.</p>
+  </div>
+
+  <div class="section-body" style="margin-top: 72px;">
+    <div class="design-solutions">
+
+      <div class="design-solution reveal">
+        <div class="ds-header">
+          <span class="ds-tag">Solution 01</span>
+          <h3 class="ds-title">Conversational AI Agent</h3>
+        </div>
+        <p class="ds-desc">An always-on AI assistant that answers project questions, explains risks, and surfaces quick insights via simple chat. By showing how it reaches conclusions and prioritizing actionable signals over noise, it builds trust without adding complexity. Every output is editable - AI is supportive, not in charge.</p>
+        <div class="ds-images single">
+          <div class="ds-image-block" style="display:flex; justify-content:center;">
+            <img src="solution-ai-agent.png" alt="Conversational AI Agent interface" style="width:50%;border-radius:8px;display:block;box-shadow:none;"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-solution reveal">
+        <div class="ds-header">
+          <span class="ds-tag">Solution 02</span>
+          <h3 class="ds-title">AI Team Builder</h3>
+        </div>
+        <p class="ds-desc">A hybrid flow that lets managers generate team suggestions with a single click, then adjust as needed. Multiple options, clear signals of what came from AI vs. manual edits, and fully editable outputs keep the manager in control of every decision.</p>
+        <div class="ds-images">
+          <div class="ds-image-block">
+            <img src="solution-team-builder-generate.png" alt="Generate team / add manually" style="width:100%;border-radius:8px;display:block;"/>
+            <div class="ds-image-caption">Generate team / add manually</div>
+          </div>
+          <div class="ds-image-block">
+            <img src="solution-team-builder-compare.png" alt="Add members / compare teams" style="width:100%;border-radius:8px;display:block;"/>
+            <div class="ds-image-caption">Add members / compare teams</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-solution reveal">
+        <div class="ds-header">
+          <span class="ds-tag">Solution 03</span>
+          <h3 class="ds-title">AI Alert System</h3>
+        </div>
+        <p class="ds-desc">Instead of constant notifications, the system highlights the single most urgent risk and provides clear next steps. It identifies overloaded team members, explains why a task may slip, and offers quick actionable fixes - one signal, not a storm of noise.</p>
+        <div class="ds-images">
+          <div class="ds-image-block">
+            <img src="solution-alert-risk.png" alt="System highlights the most urgent risk" style="width:100%;border-radius:8px;display:block;"/>
+            <div class="ds-image-caption">System highlights the most urgent risk</div>
+          </div>
+          <div class="ds-image-block">
+            <img src="solution-alert-fix.png" alt="System suggests steps to fix the risk" style="width:100%;border-radius:8px;display:block;"/>
+            <div class="ds-image-caption">System suggests steps to fix the risk</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEARNINGS -->
+<section id="learnings">
+  <div class="section-header reveal">
+    <span class="section-label">Final Words</span>
+    <h2 class="section-title">What I took away</h2>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <div>
+      <div class="learnings-grid">
+        <div class="learning-card">
+          <svg class="learning-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M12 16l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="learning-text">Transparency builds trust in AI features - and trust leads to more usage.</p>
+        </div>
+        <div class="learning-card">
+          <svg class="learning-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 8v8l5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/></svg>
+          <p class="learning-text">Managers prefer AI as a co-pilot - they want to stay in control, not be replaced.</p>
+        </div>
+        <div class="learning-card">
+          <svg class="learning-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h4m4 0h4m4 0h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8v4m0 4v4m0 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <p class="learning-text">Fewer, clearer signals drive better engagement than constant low-priority alerts.</p>
+        </div>
+      </div>
+
+      <p class="closing-note">This project strengthened my ability to design complex AI-driven systems while keeping human needs, trust, and usability at the center.</p>
+
+      <div class="thanks-block">
+        <strong>Huge thanks</strong> to Oracle sponsors Winston, Scott, Cara, and Alex for their guidance and mentorship - and to my awesome teammates Tristyn, Rebecca, and David. 🙏
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZZLE -->
+<div id="sizzle">
+  <div class="sizzle-block reveal">
+    <div class="label">Sizzle Reel</div>
+    <h2>See it in motion</h2>
+    <p>Sound on for the full experience.</p>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; margin-top: 24px;">
+      <iframe
+        src="https://www.youtube.com/embed/PThanojNwQ0"
+        title="Prioteam.AI Sizzle Reel"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:8px;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+  <div style="padding: 48px 0; display: flex; justify-content: center;">
+    <a href="#top" style="
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: border-color 0.4s, color 0.4s, transform 0.4s;
+    " onmouseover="this.style.borderColor='var(--ink)';this.style.color='var(--ink)';this.style.transform='translateY(-3px)'"
+       onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink-muted)';this.style.transform='translateY(0)'">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex; align-items:center; gap:16px;">
+    <span class="footer-logo">Shir Turkenitz</span>
+    <span class="footer-copy">© 2026</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/shirturkenitz/" target="_blank">LinkedIn</a>
+    <a href="https://drive.google.com/file/d/1-bZzj5KcVY_PsbtgJcaNekl5gZ6iMJnR/view?usp=sharing" target="_blank">Resume</a>
+  </div>
+  <span class="footer-copy">Made with Claude Code and curiosity</span>
+</footer>
+
+<script>
+  // Nav scroll border
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll - only activate if IntersectionObserver is supported
+  if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-ready');
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  }
+</script>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightbox-close">✕</div>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  // Make all content images zoomable
+  document.querySelectorAll('img:not([data-no-zoom])').forEach(img => {
+    img.classList.add('zoomable');
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close on backdrop or X click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) close();
+  });
+  document.getElementById('lightbox-close').addEventListener('click', close);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+
+  function close() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
