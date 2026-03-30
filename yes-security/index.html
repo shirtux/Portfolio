@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Yes-Security - Ticketrack · Shir Turkenitz</title>
+<title>Yes-Security - Security Dashboard · Shir Turkenitz</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -20,9 +20,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   .page-wrap { max-width: 1200px; margin: 0 auto; }
 
   body {
@@ -35,9 +33,7 @@
     overflow-x: hidden;
   }
 
-  img {
-    box-shadow: none;
-  }
+  img { box-shadow: none; }
 
   nav {
     display: flex; justify-content: space-between; align-items: center;
@@ -61,100 +57,58 @@
     gap: 0;
   }
   .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex; flex-direction: column; justify-content: center;
     padding: 80px 56px 80px 48px;
     border-right: 1px solid var(--rule);
   }
   .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
+    font-size: 11px; font-weight: 500; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
   }
   .hero-title {
     font-family: var(--serif);
     font-size: clamp(44px, 5.5vw, 76px);
-    line-height: 1.05;
-    letter-spacing: -.02em;
-    margin-bottom: 24px;
+    line-height: 1.05; letter-spacing: -.02em; margin-bottom: 24px;
   }
   .hero-title em { font-style: italic; color: var(--accent); }
   .hero-subtitle {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--ink-muted);
-    max-width: 440px;
-    margin-bottom: 28px;
-  }
-  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 24px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: .04em;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all .2s;
-  }
-  .btn-primary {
-    background: var(--ink);
-    color: var(--bg);
-  }
-  .btn-primary:hover { background: #333; transform: translateY(-1px); }
-  .btn-secondary {
-    border: 1px solid var(--rule);
-    color: var(--ink);
-    background: transparent;
-  }
-  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
-  .btn svg { width: 14px; height: 14px; }
-
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 48px 80px 56px;
+    font-size: 17px; line-height: 1.6; color: var(--ink-muted);
+    max-width: 440px; margin-bottom: 36px;
   }
   .hero-meta {
-    display: flex;
-    align-items: flex-start;
-    gap: 0;
+    display: flex; align-items: flex-start; gap: 0;
     padding: 20px 0;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
     margin-bottom: 32px;
   }
-  .meta-item {
-    padding: 0 20px;
-  }
+  .meta-item { padding: 0 20px; }
   .meta-item:first-child { padding-left: 0; }
   .meta-divider {
-    display: block;
-    width: 1px;
-    height: 28px;
-    background: var(--rule);
-    flex-shrink: 0;
-    margin-top: 2px;
+    display: block; width: 1px; height: 28px;
+    background: var(--rule); flex-shrink: 0; margin-top: 2px;
   }
   .meta-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 4px;
+    font-size: 10px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px;
   }
-  .meta-value {
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--ink);
+  .meta-value { font-size: 14px; line-height: 1.4; color: var(--ink); }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; font-size: 13px; font-weight: 500;
+    letter-spacing: .04em; text-decoration: none;
+    border-radius: 4px; transition: all .2s;
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: #333; transform: translateY(-1px); }
+  .btn-secondary { border: 1px solid var(--rule); color: var(--ink); background: transparent; }
+  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .btn svg { width: 14px; height: 14px; }
+
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 48px 80px 56px;
   }
 
   /* ── SECTION BASE ── */
@@ -162,134 +116,131 @@
   section + section { border-top: 1px solid var(--rule); }
 
   .section-header {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 64px;
-    margin-bottom: 24px;
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 64px; margin-bottom: 24px;
   }
   .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    padding-top: 8px;
+    font-size: 11px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-muted); padding-top: 8px;
   }
   .section-title {
     font-family: var(--serif);
     font-size: clamp(28px, 3.5vw, 48px);
-    line-height: 1.15;
-    letter-spacing: -.02em;
-    margin-bottom: 36px;
+    line-height: 1.15; letter-spacing: -.02em; margin-bottom: 36px;
   }
   .section-title em { font-style: italic; color: var(--accent); }
-  .section-body {
-    padding-left: 264px;
-  }
+  .section-body { padding-left: 264px; }
 
-  /* ── PROBLEM ── */
+  /* ── PROBLEM STATEMENT ── */
   .problem-statement {
     font-family: var(--serif);
     font-size: clamp(24px, 3vw, 38px);
-    line-height: 1.25;
-    letter-spacing: -.015em;
-    max-width: 720px;
-    font-weight: 300;
+    line-height: 1.25; letter-spacing: -.015em;
+    max-width: 720px; font-weight: 300;
   }
   .problem-statement strong { color: var(--accent); font-style: italic; font-weight: 400; }
 
-  /* ── RESEARCH / NEEDS ── */
+  /* ── FINDINGS LIST ── */
   .findings-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    overflow: hidden;
+    display: flex; flex-direction: column; gap: 0;
+    border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
   }
   .finding-item {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 0;
-    border-bottom: 1px solid var(--rule);
-    transition: background .4s;
+    display: grid; grid-template-columns: 48px 1fr; gap: 0;
+    border-bottom: 1px solid var(--rule); transition: background .4s;
   }
-  .finding-item:hover { background: rgba(239, 236, 229, 0.5); }
+  .finding-item:last-child { border-bottom: none; }
+  .finding-item:hover { background: rgba(239,236,229,0.5); }
   .finding-num {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 24px;
-    font-family: var(--serif);
-    font-size: 13px;
-    color: var(--accent);
-    border-right: 1px solid var(--rule);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 24px; font-family: var(--serif); font-size: 13px;
+    color: var(--accent); border-right: 1px solid var(--rule);
   }
   .finding-content { padding: 22px 28px; }
-  .finding-title {
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
+  .finding-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
   .finding-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.55; }
 
-  /* ── PRINCIPLES / IDEATION ── */
+  /* ── PRINCIPLES GRID ── */
   .principles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    overflow: hidden;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    background: var(--bg); border: 1px solid var(--rule);
+    border-radius: 8px; overflow: hidden;
   }
   .principle-card {
-    background: var(--bg);
-    padding: 36px 32px;
-    border-right: 1px solid var(--rule);
-    transition: background .4s;
+    background: var(--bg); padding: 36px 32px;
+    border-right: 1px solid var(--rule); transition: background .4s;
   }
   .principle-card:last-child { border-right: none; }
-  .principle-card:hover { background: rgba(239, 236, 229, 0.4); }
+  .principle-card:hover { background: rgba(239,236,229,0.4); }
   .principle-index {
-    font-family: var(--serif);
-    font-size: 36px;
-    color: var(--rule);
-    line-height: 1;
-    margin-bottom: 16px;
+    font-family: var(--serif); font-size: 36px; color: var(--rule);
+    line-height: 1; margin-bottom: 16px;
   }
-  .principle-name {
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
+  .principle-name { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
   .principle-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.55; }
 
-  /* ── IDEATION ── */
-  .ideation-body { max-width: 680px; }
-  .ideation-body p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--ink-muted);
-    margin-bottom: 20px;
+  /* ── BEFORE / AFTER TABLE ── */
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
+    font-size: 14px;
   }
-  .ideation-body p strong { color: var(--ink); font-weight: 500; }
+  .compare-table th {
+    padding: 12px 20px; text-align: left;
+    font-size: 10px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-muted);
+    background: var(--accent-light); border-bottom: 1px solid var(--rule);
+  }
+  .compare-table td { padding: 13px 20px; border-bottom: 1px solid var(--rule); color: var(--ink-muted); vertical-align: top; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(239,236,229,0.4); }
+  .compare-table td:first-child { font-weight: 500; color: var(--ink); }
+  .tag-before {
+    display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    background: rgba(220,80,80,0.08); color: #b33030;
+    border: 1px solid rgba(220,80,80,0.15);
+  }
+  .tag-after {
+    display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    background: rgba(40,140,90,0.08); color: #1a6640;
+    border: 1px solid rgba(40,140,90,0.15);
+  }
+
+  /* ── DECISION BLOCKS ── */
+  .decisions { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .decision-item {
+    display: grid; grid-template-columns: 48px 1fr; gap: 0;
+    border-bottom: 1px solid var(--rule); transition: background .4s;
+  }
+  .decision-item:last-child { border-bottom: none; }
+  .decision-item:hover { background: rgba(239,236,229,0.4); }
+  .decision-num {
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 28px; font-family: var(--serif); font-size: 13px;
+    color: var(--accent); border-right: 1px solid var(--rule);
+  }
+  .decision-content { padding: 26px 28px; }
+  .decision-title { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--ink); }
+  .decision-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .decision-col-label {
+    font-size: 10px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .decision-col-label.challenge { color: #b33030; }
+  .decision-col-label.solution  { color: #1a6640; }
+  .decision-col-body { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
 
   /* ── SOLUTION INTRO ── */
   .solution-intro {
     font-family: var(--serif);
     font-size: clamp(22px, 2.5vw, 34px);
-    line-height: 1.25;
-    letter-spacing: -.015em;
-    max-width: 680px;
-    margin-bottom: 24px;
+    line-height: 1.25; letter-spacing: -.015em;
+    max-width: 680px; margin-bottom: 24px;
   }
   .solution-intro em { font-style: italic; color: var(--accent); }
   .solution-note {
-    font-size: 16px;
-    color: var(--ink-muted);
-    line-height: 1.65;
-    max-width: 620px;
+    font-size: 16px; color: var(--ink-muted);
+    line-height: 1.65; max-width: 620px;
   }
   .solution-note strong { color: var(--ink); font-weight: 500; }
 
@@ -297,87 +248,56 @@
   .design-solutions { display: flex; flex-direction: column; gap: 80px; }
   .ds-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 20px; }
   .ds-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--ink);
-    color: var(--bg);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    margin-top: 5px;
-    white-space: nowrap;
+    display: inline-block; padding: 4px 12px; background: var(--ink); color: var(--bg);
+    font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    border-radius: 2px; margin-top: 5px; white-space: nowrap;
   }
   .ds-title {
-    font-family: var(--serif);
-    font-size: clamp(20px, 2.2vw, 30px);
-    line-height: 1.2;
-    letter-spacing: -.01em;
+    font-family: var(--serif); font-size: clamp(20px, 2.2vw, 30px);
+    line-height: 1.2; letter-spacing: -.01em;
   }
   .ds-desc {
-    font-size: 15px;
-    color: var(--ink-muted);
-    line-height: 1.7;
-    max-width: 660px;
-    margin-bottom: 32px;
+    font-size: 15px; color: var(--ink-muted); line-height: 1.7;
+    max-width: 660px; margin-bottom: 32px;
   }
-  .ds-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+
+  /* ── DASHBOARD PREVIEW ── */
+  .dashboard-preview {
+    border: 1px solid var(--rule); border-radius: 12px; overflow: hidden;
+    background: #f0f1f4;
   }
-  .ds-images.single { grid-template-columns: 1fr; }
-  .ds-image-caption {
-    font-size: 11px;
-    color: var(--ink-muted);
-    letter-spacing: .04em;
-    margin-top: 10px;
-    text-transform: uppercase;
+  .db-chrome {
+    background: #e8eaef; padding: 10px 16px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .db-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .db-url {
+    flex: 1; background: white; border-radius: 4px;
+    padding: 4px 12px; font-size: 11px; color: #9098a9;
+    border: 1px solid #e2e4e9; margin: 0 8px;
   }
 
   /* ── LEARNINGS ── */
   .learnings-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 56px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    background: var(--bg); border: 1px solid var(--rule);
+    border-radius: 8px; overflow: hidden; margin-bottom: 56px;
   }
   .learning-card {
-    background: var(--bg);
-    padding: 36px 28px;
+    background: var(--bg); padding: 36px 28px;
     border-right: 1px solid var(--rule);
   }
   .learning-card:last-child { border-right: none; }
-  .learning-icon {
-    width: 32px; height: 32px;
-    margin-bottom: 16px;
-    color: var(--accent);
-  }
-  .learning-text {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--ink);
-  }
+  .learning-icon { width: 32px; height: 32px; margin-bottom: 16px; color: var(--accent); }
+  .learning-text { font-size: 15px; line-height: 1.6; color: var(--ink); }
   .closing-note {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--ink-muted);
-    max-width: 640px;
-    margin-bottom: 32px;
+    font-size: 15px; line-height: 1.7; color: var(--ink-muted);
+    max-width: 640px; margin-bottom: 32px;
   }
   .thanks-block {
-    padding: 28px 32px;
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--ink-muted);
-    max-width: 640px;
+    padding: 28px 32px; border: 1px solid var(--rule); border-radius: 8px;
+    font-size: 14px; line-height: 1.7; color: var(--ink-muted); max-width: 640px;
   }
   .thanks-block strong { color: var(--ink); }
 
@@ -387,6 +307,7 @@
     padding: 32px clamp(24px, 5vw, 80px);
     display: flex; justify-content: space-between; align-items: center;
     font-size: 13px; color: var(--ink-muted);
+    position: relative;
   }
   .footer-logo { font-family: var(--serif); font-size: 15px; color: var(--ink); }
   .footer-links { display: flex; gap: 24px; }
@@ -395,23 +316,13 @@
   .footer-copy { font-size: 12px; color: var(--label); }
 
   /* ── ANIMATIONS ── */
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
+  .reveal { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: no-preference) {
-    .js-ready .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .js-ready .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .js-ready .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .js-ready .reveal.visible { opacity: 1; transform: none; }
   }
 
-  /* ── TABLET ── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 56px 40px 40px; border-right: none; border-bottom: 1px solid var(--rule); }
@@ -422,10 +333,8 @@
     .section-label { padding-top: 0; }
     .principles-grid { grid-template-columns: 1fr 1fr; }
     .learnings-grid { grid-template-columns: 1fr 1fr; }
-    .ds-images { grid-template-columns: 1fr; }
+    .decision-cols { grid-template-columns: 1fr; gap: 16px; }
   }
-
-  /* ── MOBILE ── */
   @media (max-width: 640px) {
     nav { padding: 18px 20px; }
     .nav-links { gap: 18px; }
@@ -439,54 +348,29 @@
     .principles-grid { grid-template-columns: 1fr; }
     .principle-card { padding: 24px 20px; }
     .learnings-grid { grid-template-columns: 1fr; }
-    .ds-images { grid-template-columns: 1fr; }
-    .ds-header { flex-direction: column; gap: 10px; }
-    .problem-statement { font-size: clamp(20px, 5vw, 28px); }
-    .solution-intro { font-size: clamp(18px, 5vw, 26px); }
     footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
     .footer-links { justify-content: center; }
-    html, body { overflow-x: hidden; width: 100%; }
   }
 
   /* ── LIGHTBOX ── */
   .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: rgba(26,25,22,0.7);
-    backdrop-filter: blur(4px);
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(26,25,22,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; cursor: pointer;
   }
   .lightbox.active { display: flex; }
   .lightbox img {
-    max-width: 75%;
-    max-height: 75vh;
-    width: auto;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: none;
-    cursor: default;
+    max-width: 75%; max-height: 75vh; width: auto; height: auto;
+    border-radius: 8px; cursor: default;
     animation: lightbox-in .2s ease;
   }
-  @keyframes lightbox-in {
-    from { opacity: 0; transform: scale(0.95); }
-    to   { opacity: 1; transform: scale(1); }
-  }
+  @keyframes lightbox-in { from { opacity:0; transform:scale(.95); } to { opacity:1; transform:scale(1); } }
   .lightbox-close {
-    position: absolute;
-    top: 24px; right: 24px;
-    width: 36px; height: 36px;
-    background: rgba(245,243,238,0.15);
-    border: 1px solid rgba(245,243,238,0.2);
-    border-radius: 50%;
+    position: absolute; top: 24px; right: 24px;
+    width: 36px; height: 36px; background: rgba(245,243,238,0.15);
+    border: 1px solid rgba(245,243,238,0.2); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    color: #F7F5F0;
-    font-size: 18px;
-    transition: background .2s;
+    cursor: pointer; color: #F7F5F0; font-size: 18px; transition: background .2s;
   }
   .lightbox-close:hover { background: rgba(245,243,238,0.25); }
   .zoomable { cursor: zoom-in; }
@@ -504,41 +388,42 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="page-wrap">
+
+<!-- HERO -->
 <div class="hero" id="top">
   <div class="hero-left reveal">
-    <div class="hero-eyebrow">Yes-Security · Cybersecurity Platform</div>
-    <h1 class="hero-title">Ticke<em>track</em></h1>
-    <p class="hero-subtitle">A ticketing feature designed to manage security issues within a cybersecurity platform - turning compliance chaos into clarity.</p>
+    <div class="hero-eyebrow">Yes-Security · Shadow IT Governance</div>
+    <h1 class="hero-title">Security <em>Dashboard</em></h1>
+    <p class="hero-subtitle">Designing the core monitoring dashboard for a Shadow IT security platform - giving security teams the visibility to catch unauthorized data exposure and act before it escalates.</p>
 
     <div class="hero-meta">
       <div class="meta-item">
         <div class="meta-label">Role</div>
-        <div class="meta-value">Sole UX Designer</div>
+        <div class="meta-value">Sole Product Designer</div>
       </div>
       <div class="meta-divider"></div>
       <div class="meta-item">
-        <div class="meta-label">Duration</div>
-        <div class="meta-value">Jun – Jul 2023</div>
+        <div class="meta-label">Year</div>
+        <div class="meta-value">2023</div>
       </div>
       <div class="meta-divider"></div>
       <div class="meta-item">
         <div class="meta-label">Domain</div>
-        <div class="meta-value">Cybersecurity · Low-code / No-code</div>
+        <div class="meta-value">Security · Data Governance · Enterprise SaaS</div>
       </div>
     </div>
 
     <div class="hero-ctas">
       <a href="#final" class="btn btn-primary">
         Explore final design
-        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
 
-  <div class="hero-right reveal" style="transition-delay:.15s">
-    <img src="hero-main.png" alt="Ticketrack - final design overview" style="width:62.5%;border-radius:8px;display:block;margin:0 auto;"/>
+  <div class="hero-right reveal" style="transition-delay:.15s; overflow:hidden;">
+    <img src="hero.png" alt="Yes-Security dashboard preview" style="width:100%; height:100%; object-fit:contain; display:block;" data-no-zoom />
   </div>
 </div>
 
@@ -549,8 +434,26 @@
     <h2 class="section-title">What is <em>Yes-Security?</em></h2>
   </div>
   <div class="section-body reveal" style="transition-delay:.1s">
-    <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);max-width:620px;">Yes-Security helps companies secure their low-code and no-code applications by finding and fixing vulnerabilities - before they become breaches.</p>
-    <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-top:16px;">After stakeholders raised concerns about the lack of a clear process for reporting and resolving potential security issues, I proposed a ticketing system.</p>
+    <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);max-width:620px;">Yes-Security is a <strong style="color:var(--ink);font-weight:500;">Shadow IT monitoring platform</strong>. It watches your network and surfaces every unauthorized tool employees are using - whether IT approved it or not. I owned the design of the core dashboard that security teams use daily to monitor data exposure risk and decide what needs immediate action.</p>
+
+    <div class="findings-list" style="margin-top:32px; max-width:620px;">
+      <div class="finding-item">
+        <div class="finding-num">1</div>
+        <div class="finding-content">
+          <div class="finding-title">Primary user - Security Manager / SOC Analyst</div>
+          <div class="finding-desc">The daily operator. Monitors the tool list in real time, investigates specific findings, and triages what needs attention now vs. later. They use the full dashboard - KPI cards and the tool table.</div>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">2</div>
+        <div class="finding-content">
+          <div class="finding-title">Secondary user - CISO</div>
+          <div class="finding-desc">The executive stakeholder. Looks at the 4 KPI cards for a fast read on overall risk posture - are things getting better or worse? They don't dig into individual rows. The KPI cards are their view.</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:15px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-top:24px;font-style:italic;">The dashboard was designed with both users in mind - the KPI cards serve the CISO's executive view, while the tool table serves the analyst's operational workflow. One interface, two levels of depth.</p>
   </div>
 </section>
 
@@ -558,111 +461,148 @@
 <section id="problem">
   <div class="section-header reveal">
     <span class="section-label">The Problem</span>
-    <h2 class="section-title">Where does reporting <em>break down?</em></h2>
+    <h2 class="section-title">Drowning in data, <em>starving for signal</em></h2>
   </div>
   <div class="section-body reveal" style="transition-delay:.1s">
     <p class="problem-statement">
-      When Sarah, a non-technical user, <strong>discovers a potential security issue,</strong> she struggles to find a clear, trustworthy channel for reporting it - leading her to abandon the effort or send critical information into an unmonitored general inbox.
+      When everything looks equally urgent, <strong>nothing gets treated that way.</strong> And in a Shadow IT dashboard, that is not just bad design - it means unauthorized tools go uninvestigated, data exposure goes undetected, and a hidden risk quietly becomes a breach.
     </p>
   </div>
 </section>
 
-<!-- RESEARCH / NEEDS -->
+<!-- RESEARCH -->
 <section id="research">
   <div class="section-header reveal">
-    <span class="section-label">Exploring the Needs</span>
-    <h2 class="section-title">What users actually needed</h2>
+    <span class="section-label">Research</span>
+    <h2 class="section-title">Building understanding <em>without direct user access</em></h2>
   </div>
-
   <div class="section-body reveal" style="transition-delay:.1s">
     <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-bottom:40px;">
-      I began with secondary research to identify key requirements and competitor practices, then created initial sketches and gathered stakeholder feedback. Three core needs emerged.
+      At an early-stage startup, I didn't have access to end users for formal research. Instead I built understanding through two sources: interviews with the founding team and competitive analysis of how leading security platforms handle threat prioritization.
     </p>
     <div class="findings-list">
       <div class="finding-item">
         <div class="finding-num">1</div>
         <div class="finding-content">
-          <div class="finding-title">Clear and intuitive for all users</div>
-          <div class="finding-desc">Both infosec professionals and non-technical employees needed to feel confident navigating and using the system without training.</div>
+          <div class="finding-title">Security analysts scan - they don't read</div>
+          <div class="finding-desc">From interviews with the founding team, I learned that target users glance at dashboards under pressure. Visual hierarchy had to communicate priority before a single word was read.</div>
         </div>
       </div>
       <div class="finding-item">
         <div class="finding-num">2</div>
         <div class="finding-content">
-          <div class="finding-title">Designed for collaboration</div>
-          <div class="finding-desc">Security issues rarely live in silos - the system had to support team visibility, assignment, and status tracking across roles.</div>
+          <div class="finding-title">Existing tools created alert fatigue</div>
+          <div class="finding-desc">Competitive research showed that tools like Netskope used structured risk scoring - Critical, High, Medium, Low - because vague severity labels slow analyst response time and increase the window of data exposure.</div>
         </div>
       </div>
       <div class="finding-item">
         <div class="finding-num">3</div>
         <div class="finding-content">
-          <div class="finding-title">Easily accessible from multiple screens</div>
-          <div class="finding-desc">Users encounter vulnerabilities at different moments. The entry point had to be persistent and consistent throughout the platform.</div>
+          <div class="finding-title">Seeing a problem without a path to action is useless</div>
+          <div class="finding-desc">Prospects told the founding team they were frustrated with tools that surfaced findings but gave no clear next step. Every finding needed a clear, immediate path to action.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- IDEATION -->
-<section id="ideation">
-  <div class="section-header reveal">
-    <span class="section-label">Ideation</span>
-    <h2 class="section-title">From 3 ideas to <em>one</em></h2>
-  </div>
-  <div class="section-body reveal" style="transition-delay:.1s">
-    <div style="margin-bottom: 64px;">
-      <h3 style="font-family:var(--serif);font-size:clamp(16px,1.6vw,20px);letter-spacing:-.01em;margin-bottom:12px;">Concept explorations - three visualization approaches</h3>
-      <p style="font-size:15px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-bottom:28px;">Out of three visualization concepts, we chose the <strong style="color:var(--ink);font-weight:500;">sidebar</strong> as the core interaction pattern - because it supports <strong style="color:var(--ink);font-weight:500;">multitasking</strong> and maintains <strong style="color:var(--ink);font-weight:500;">consistency</strong> across the platform.</p>
-      <img src="ideation-concepts.png" alt="Concept explorations - three visualization approaches" style="width:100%;border-radius:8px;display:block;"/>
-    </div>
-
-    <div>
-      <h3 style="font-family:var(--serif);font-size:clamp(16px,1.6vw,20px);letter-spacing:-.01em;margin-bottom:12px;">Early sketches - sidebar brainstorming</h3>
-      <p style="font-size:15px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-bottom:28px;">After settling on the sidebar, I began brainstorming the entry point and the core ticket details. The key challenge: make it feel native to the security context, not like a generic help desk bolted on.</p>
-      <img src="ideation-sketches.png" alt="Early sketches - sidebar brainstorming" style="width:75%;border-radius:8px;display:block;margin:0 auto;"/>
-    </div>
-  </div>
-</section>
-
-<!-- PRINCIPLES -->
+<!-- DESIGN PRINCIPLES -->
 <section id="principles">
   <div class="section-header reveal">
     <span class="section-label">Design Approach</span>
-    <h2 class="section-title">Easy access &amp; real-time notifications</h2>
+    <h2 class="section-title">One question guided <em>every decision</em></h2>
   </div>
   <div class="section-body reveal" style="transition-delay:.1s">
     <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-bottom:40px;">
-      As a product that highlights security issues, we prioritized as many entry points as possible - allowing users to receive quick notifications or access the system easily wherever they are.
+      Can a security analyst answer <em>"is anything on fire right now?"</em> within 5 seconds of opening this dashboard? Every design choice was tested against that.
     </p>
     <div class="principles-grid">
       <div class="principle-card">
         <div class="principle-index">01</div>
-        <div class="principle-name">Persistent Access</div>
-        <div class="principle-desc">The sidebar entry point stays available across all screens - no hunting for where to report an issue.</div>
+        <div class="principle-name">Clarity over completeness</div>
+        <div class="principle-desc">The dashboard should do the cognitive work of prioritization - so the analyst doesn't have to. Show less, surface the right thing.</div>
       </div>
       <div class="principle-card">
         <div class="principle-index">02</div>
-        <div class="principle-name">Real-time Notifications</div>
-        <div class="principle-desc">Instant alerts surface the most pressing issues - no waiting for a dashboard refresh to know something needs attention.</div>
+        <div class="principle-name">Language is design</div>
+        <div class="principle-desc">"6 Findings" means nothing. "6 Critical Findings on Admin Accounts" tells a story. Every label was chosen to drive action, not just describe data.</div>
       </div>
       <div class="principle-card">
         <div class="principle-index">03</div>
-        <div class="principle-name">Collaborative by Default</div>
-        <div class="principle-desc">Tickets are visible and assignable across teams from the moment they're created - no siloed inboxes.</div>
+        <div class="principle-name">Always actionable</div>
+        <div class="principle-desc">The gap between seeing a problem and acting on it is where security risks live. Every finding needed a clear, immediate next step.</div>
       </div>
     </div>
   </div>
-  <div class="section-body reveal" style="transition-delay:.2s; margin-top: 40px;">
-    <img src="entry-points.png" alt="Entry points and notification design" style="width:100%;border-radius:8px;display:block;"/>
+</section>
+
+<!-- DESIGN DECISIONS -->
+<section id="decisions">
+  <div class="section-header reveal">
+    <span class="section-label">Design Decisions</span>
+    <h2 class="section-title">Three decisions that <em>defined the product</em></h2>
+  </div>
+  <div class="section-body reveal" style="transition-delay:.1s">
+    <p style="font-size:16px;line-height:1.7;color:var(--ink-muted);max-width:620px;margin-bottom:40px;">The dashboard had three core design challenges - each one a direct response to what I learned in research. Here is how I solved them.</p>
+
+    <div class="decisions">
+      <div class="decision-item">
+        <div class="decision-num">1</div>
+        <div class="decision-content">
+          <div class="decision-title">Defining the severity taxonomy - Critical / High / Medium / Low</div>
+          <div class="decision-cols">
+            <div>
+              <div class="decision-col-label challenge">Rejected approach</div>
+              <div class="decision-col-body">Vague labels like "Important" create hesitation at exactly the wrong moment - when an analyst needs to act fast on a potential data exposure risk.</div>
+            </div>
+            <div>
+              <div class="decision-col-label solution">Chosen approach</div>
+              <div class="decision-col-body">Adopted the industry-standard severity taxonomy used across leading security platforms like Netskope and CrowdStrike. Analysts don't need to learn a new system - they already know what Critical means.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="decision-item">
+        <div class="decision-num">2</div>
+        <div class="decision-content">
+          <div class="decision-title">Inactive tools dimmed to 40% opacity</div>
+          <div class="decision-cols">
+            <div>
+              <div class="decision-col-label challenge">Rejected approach</div>
+              <div class="decision-col-body">Marketo (last seen Nov 2021) sitting in the table with the same visual weight as tools active today - a very different risk profile treated identically.</div>
+            </div>
+            <div>
+              <div class="decision-col-label solution">Chosen approach</div>
+              <div class="decision-col-body">Inactive tools remain for completeness but render at 40% opacity. Active risks automatically dominate attention without any sorting required.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="decision-item">
+        <div class="decision-num">3</div>
+        <div class="decision-content">
+          <div class="decision-title">"Investigate" always visible - not hidden on hover</div>
+          <div class="decision-cols">
+            <div>
+              <div class="decision-col-label challenge">Rejected approach</div>
+              <div class="decision-col-body">In high-stress situations, hidden actions add friction. A security analyst shouldn't have to discover that a row is actionable.</div>
+            </div>
+            <div>
+              <div class="decision-col-label solution">Chosen approach</div>
+              <div class="decision-col-body">Action button always visible. Label changes by severity: Critical/High - "Investigate", Low - "View", Inactive - "Review". Language matches urgency.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SOLUTION STATEMENT -->
-<section id="solution" style="background: rgba(239, 236, 229, 0.4); border-top: none;">
+<section id="solution" style="background: rgba(239,236,229,0.4); border-top: none;">
   <div class="reveal" style="display:grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start;">
     <span class="section-label" style="padding-top: 8px;">The Solution</span>
-    <p class="solution-intro">A clear and organized ticketing system that highlights compliance issues - allowing team members to track progress, collaborate, and stay updated <em>until each issue is resolved.</em></p>
+    <p class="solution-intro">A security dashboard that tells analysts <em>exactly what needs their attention</em> - and gives them a clear path to act on it, without wading through noise.</p>
   </div>
 </section>
 
@@ -670,29 +610,114 @@
 <section id="final">
   <div class="section-header reveal">
     <span class="section-label">Final Design</span>
-    <h2 class="section-title">Turn compliance chaos <em>into clarity</em></h2>
+    <h2 class="section-title">From noise <em>to signal</em></h2>
   </div>
   <div class="section-body reveal" style="transition-delay:.1s">
-    <p class="solution-note">The final design <strong>makes security issues visible and actionable</strong> - giving both technical and non-technical users a shared space to track, discuss, and resolve vulnerabilities without ever leaving the platform.</p>
+    <p class="solution-note">The final design <strong>makes data exposure risks visible, prioritized, and actionable</strong> - giving security managers a single view of every unauthorized tool in their environment, sorted by risk, with immediate paths to investigate.</p>
   </div>
 
-  <div class="section-body" style="margin-top: 36px;">
+  <div class="section-body" style="margin-top: 48px;">
     <div class="design-solutions">
 
       <div class="design-solution reveal">
         <div class="ds-header">
-          <span class="ds-tag" style="display:none">Feature 01</span>
-          <h3 class="ds-title">Ticketing Sidebar</h3>
+          <span class="ds-tag">Feature 01</span>
+          <h3 class="ds-title">KPI cards - one number, one message</h3>
         </div>
-        <p class="ds-desc">A persistent panel accessible from anywhere in the platform. Users can file a new ticket, view open issues, and check status - all without breaking their current workflow. The sidebar keeps security front-of-mind without becoming an interruption.</p>
-        <div class="ds-images single">
-          <div class="ds-image-block">
-            <img src="final-sidebar.png" alt="Ticketrack final design - sidebar and ticket management" style="width:100%;border-radius:8px;display:block;"/>
-          </div>
-        </div>
+        <p class="ds-desc">Each card leads with the alert count as the dominant element. A colored top stripe signals severity at a glance. Supporting context sits quietly below the divider - available but not competing.</p>
+
+        <img src="cards.png" alt="KPI cards design" style="width:100%; border-radius:12px;" />
       </div>
 
+      <div class="design-solution reveal" style="transition-delay:.1s">
+        <div class="ds-header">
+          <span class="ds-tag">Feature 02</span>
+          <h3 class="ds-title">Tool table - sorted by risk, always actionable</h3>
+        </div>
+        <p class="ds-desc">Every tool is sorted by severity. Inactive tools recede visually. The action button is always visible - label changes to match the urgency of each row. A kebab menu gives quick access to edit or delete.</p>
 
+        <img src="tooltable.png" alt="Tool table design" style="width:100%; border-radius:12px;" />
+      </div>
+
+      <div class="design-solution reveal" style="transition-delay:.2s">
+        <div class="ds-header">
+          <span class="ds-tag">Feature 03</span>
+          <h3 class="ds-title">The employee email form - closing the loop</h3>
+        </div>
+        <p class="ds-desc">The dashboard tells the security team <em>what</em> tools are being used. But it can never tell them <em>why</em>. I designed a second touchpoint - a lightweight form sent directly to the employee via email - that captures the context the automated system can't: what are you using this tool for, what data does it touch, who recommended it?</p>
+
+        <p class="ds-desc">The employee never needs to log into Yes-Security. They get an email, click a link, fill out a simple form. That's it. The response flows back to the security team and gives them what they need to make a decision: approve the tool, investigate further, or revoke access.</p>
+
+        <!-- Email form mockup -->
+        <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap:32px; align-items:center; margin-top:8px;">
+
+          <!-- Left: why it matters -->
+          <div style="background: var(--accent-light); border-radius:12px; padding:28px;">
+            <div style="font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:16px;">Why this matters</div>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <div style="width:20px; height:20px; border-radius:50%; background:rgba(139,115,85,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="font-size:13px; color:var(--ink-muted); line-height:1.55;">Meets the employee where they are - <strong style="color:var(--ink);">email</strong>, not a security tool they've never heard of</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <div style="width:20px; height:20px; border-radius:50%; background:rgba(139,115,85,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="font-size:13px; color:var(--ink-muted); line-height:1.55;">Turns an unknown risk into a <strong style="color:var(--ink);">known and understood one</strong> - with zero friction</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <div style="width:20px; height:20px; border-radius:50%; background:rgba(139,115,85,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="font-size:13px; color:var(--ink-muted); line-height:1.55;">Reflects a philosophy shift - <strong style="color:var(--ink);">understand and decide</strong>, not block and punish</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <div style="width:20px; height:20px; border-radius:50%; background:rgba(139,115,85,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="font-size:13px; color:var(--ink-muted); line-height:1.55;">Creates a <strong style="color:var(--ink);">paper trail</strong> - the employee's response is documented for compliance and audit</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form image -->
+          <img src="form.png" alt="Employee email form design" style="width:100%; border-radius:12px;" />
+
+        </div>
+
+        <!-- The full loop -->
+        <div style="margin-top:32px; padding:32px 36px; border:1px solid var(--rule); border-radius:12px; background:white;">
+          <div style="font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:28px;">The complete loop</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0;">
+            <div style="text-align:center; flex:1;">
+              <div style="width:52px; height:52px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:20px; margin:0 auto 12px;">🔍</div>
+              <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px;">Detect</div>
+              <div style="font-size:12px; color:var(--ink-muted); line-height:1.5;">Yes-Security finds<br>Airtable via OAuth</div>
+            </div>
+            <div style="font-size:18px; color:var(--rule); flex-shrink:0; padding:0 8px; margin-bottom:24px;">→</div>
+            <div style="text-align:center; flex:1;">
+              <div style="width:52px; height:52px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:20px; margin:0 auto 12px;">📊</div>
+              <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px;">Dashboard</div>
+              <div style="font-size:12px; color:var(--ink-muted); line-height:1.5;">Analyst sees it flagged<br>triggers outreach</div>
+            </div>
+            <div style="font-size:18px; color:var(--rule); flex-shrink:0; padding:0 8px; margin-bottom:24px;">→</div>
+            <div style="text-align:center; flex:1;">
+              <div style="width:52px; height:52px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:20px; margin:0 auto 12px;">📧</div>
+              <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px;">Email form</div>
+              <div style="font-size:12px; color:var(--ink-muted); line-height:1.5;">Employee fills in<br>why they use it</div>
+            </div>
+            <div style="font-size:18px; color:var(--rule); flex-shrink:0; padding:0 8px; margin-bottom:24px;">→</div>
+            <div style="text-align:center; flex:1;">
+              <div style="width:52px; height:52px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:20px; margin:0 auto 12px;">✅</div>
+              <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px;">Decision</div>
+              <div style="font-size:12px; color:var(--ink-muted); line-height:1.5;">Approve, investigate,<br>or revoke access</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
     </div>
   </div>
@@ -708,23 +733,23 @@
     <div>
       <div class="learnings-grid">
         <div class="learning-card">
-          <svg class="learning-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M12 16l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p class="learning-text">Joining with no cybersecurity background - and shaping user workflows within two weeks - taught me that fresh perspective is a feature, not a gap.</p>
+          <svg class="learning-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M12 16l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="learning-text">Clarity is a form of speed. Every second of confusion the interface creates is a second an analyst isn't spending on the actual threat.</p>
         </div>
         <div class="learning-card">
-          <svg class="learning-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 8v8l5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/></svg>
-          <p class="learning-text">Early-stage startups limit user exposure - so secondary research and stakeholder alignment become the designer's best tools for grounding decisions.</p>
+          <svg class="learning-icon" viewBox="0 0 32 32" fill="none"><path d="M16 8v8l5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/></svg>
+          <p class="learning-text">Without direct user access, stakeholder interviews and competitive analysis become your most powerful research tools. Secondary research isn't a compromise - it's a skill.</p>
         </div>
         <div class="learning-card">
-          <svg class="learning-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h4m4 0h4m4 0h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8v4m0 4v4m0 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <p class="learning-text">If I had the chance, usability testing with real users and design partners would be the next step - to validate and refine what intuition alone can't fully confirm.</p>
+          <svg class="learning-icon" viewBox="0 0 32 32" fill="none"><path d="M8 16h4m4 0h4m4 0h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8v4m0 4v4m0 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <p class="learning-text">Language is a design decision. "Important" vs "Critical" isn't a copy choice - it's a UX choice that affects how fast an analyst responds to a real threat.</p>
         </div>
       </div>
 
-      <p class="closing-note">Unfortunately, the startup is no longer operating, so the feature wasn't implemented or tested in production. This project sharpened my ability to move fast in an unfamiliar domain while keeping user needs - not assumptions - at the center of every decision.</p>
+      <p class="closing-note">If I could continue this project, the next step would be usability testing with real SOC analysts - measuring time-to-prioritization with the dashboard, and validating the severity taxonomy against how analysts actually talk about risk.</p>
 
       <div class="thanks-block">
-        <strong>A note:</strong> I joined Yes-Security with no cybersecurity background. Within two weeks I had immersed myself enough to start shaping user workflows. Sometimes the most valuable thing a designer brings is a beginner's eye. 🔐
+        <strong>A note on the domain:</strong> I joined Yes-Security without a cybersecurity background. Within weeks I had immersed myself in Shadow IT governance risks, and how enterprise security teams operate. Sometimes the most valuable thing a designer brings is a beginner's eye - and the willingness to ask "why is this the way it is?" 🔐
       </div>
     </div>
   </div>
@@ -734,95 +759,57 @@
 
 <!-- BACK TO TOP -->
 <div style="display:flex; justify-content:center; padding: 48px 0;">
-  <a href="#top" id="back-to-top" style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--rule);
-    border-radius: 50%;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: border-color .2s, color .2s, transform .2s;
-  ">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+  <a href="#top" id="back-to-top" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; border:1px solid var(--rule); border-radius:50%; color:var(--ink-muted); text-decoration:none; transition: border-color .2s, color .2s, transform .2s;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </div>
-
-<style>
-  #back-to-top:hover {
-    border-color: var(--ink);
-    color: var(--ink);
-    transform: translateY(-2px);
-  }
-</style>
+<style>#back-to-top:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-2px); }</style>
 
 <!-- FOOTER -->
-<footer>
+<footer style="position:relative;">
   <div style="display:flex; align-items:center; gap:16px;">
     <span class="footer-logo">Shir Turkenitz</span>
     <span class="footer-copy">© 2026</span>
   </div>
-  <div class="footer-links">
+  <div class="footer-links" style="position:absolute; left:50%; transform:translateX(-50%);">
     <a href="https://www.linkedin.com/in/shirturkenitz/" target="_blank">LinkedIn</a>
     <a href="https://drive.google.com/file/d/1ItWBjf8puQilvNov9e4icDHH3k8i7-f2/view?usp=sharing" target="_blank">Resume</a>
   </div>
   <span class="footer-copy">Made with Claude Code and curiosity</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
 
   if ('IntersectionObserver' in window) {
     document.documentElement.classList.add('js-ready');
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
     }, { threshold: 0.08 });
     reveals.forEach(el => io.observe(el));
   }
 </script>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-close" id="lightbox-close">✕</div>
   <img id="lightbox-img" src="" alt=""/>
 </div>
-
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
-
   document.querySelectorAll('img:not([data-no-zoom])').forEach(img => {
     img.classList.add('zoomable');
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
+    img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; });
   });
-
   lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) close();
+    if (e.target === lightbox || e.target.id === 'lightbox-close') {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
-  document.getElementById('lightbox-close').addEventListener('click', close);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') close();
+    if (e.key === 'Escape') { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
   });
-
-  function close() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
 </script>
-</body>
-</html>
