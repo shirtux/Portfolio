@@ -41,7 +41,7 @@
   }
 
   nav {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
     padding: 28px clamp(24px, 5vw, 80px);
     position: sticky; top: 0; z-index: 100;
     background: var(--bg-warm);
@@ -290,11 +290,11 @@
   .thanks-block strong { color: var(--ink); }
 
   /* ── FOOTER ── */
-  footer {
+  footer { justify-content: center; align-items: center;
     border-top: 1px solid var(--rule);
     background: var(--bg-warm);
     padding: 32px clamp(24px, 5vw, 80px);
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
     font-size: 13px; color: var(--ink-muted);
   }
   .footer-logo { font-family: var(--serif); font-size: 15px; color: var(--ink); }
@@ -344,7 +344,7 @@
     .finding-content { padding: 18px 16px; }
     .problem-statement { font-size: clamp(20px, 5vw, 28px); }
     .solution-intro { font-size: clamp(18px, 5vw, 26px); }
-    footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+    footer { justify-content: center; align-items: center; padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
     .footer-links { justify-content: center; }
     html, body { overflow-x: hidden; width: 100%; }
   }
@@ -606,8 +606,8 @@
 </div><!-- /page-wrap -->
 
 <!-- FOOTER -->
-<footer>
-  <div style="display:flex; align-items:center; gap:16px;">
+<footer style="flex-direction: column; justify-content: center; align-items: center; gap: 12px;">
+  <div style="display:flex; align-items:center; gap:16px; flex:1;">
     <span class="footer-logo">Shir Turkenitz</span>
     <span class="footer-copy">© 2026</span>
   </div>
